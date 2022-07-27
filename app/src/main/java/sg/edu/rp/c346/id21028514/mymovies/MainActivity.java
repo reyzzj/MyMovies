@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         Toast.makeText(MainActivity.this, "Rating: R21 is selected",
                                 Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //                            Toast.LENGTH_SHORT).show();
 //                }
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                long inserted_id = dbh.insertNote(data,data1,data2,rating);
+                long inserted_id = dbh.insertNote(dataTitle,dataGenre,dataYear,rating);
 
                 if (inserted_id != -1){
                     Toast.makeText(MainActivity.this, "Insert successful",
@@ -134,5 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
 // hello world
