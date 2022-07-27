@@ -44,12 +44,7 @@ public class MainActivity extends AppCompatActivity {
         etContent = findViewById(R.id.etContent);
         etContent2 = findViewById(R.id.etContent2);
         etContent3 = findViewById(R.id.etContent3);
-        rgContent = findViewById(R.id.groupradio);
-        star1 = findViewById(R.id.radioButton1);
-        star2 = findViewById(R.id.radioButton2);
-        star3 = findViewById(R.id.radioButton3);
-        star4 = findViewById(R.id.radioButton4);
-        star5 = findViewById(R.id.radioButton5);
+
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
