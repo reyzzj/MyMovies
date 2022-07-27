@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dd/AndroidStudioProjects/MyMovies/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/dd/AndroidStudioProjects/MyMovies/app/src/main/res/layout/activity_modify_movie.xml" value="0.1" />
+        <entry key="..\:/Users/dd/AndroidStudioProjects/MyMovies/app/src/main/res/layout/activity_show_movie.xml" value="0.1" />
         <entry key="..\:/Users/dd/AndroidStudioProjects/MyMovies/app/src/main/res/layout/row.xml" value="0.1" />
       </map>
     </option>
