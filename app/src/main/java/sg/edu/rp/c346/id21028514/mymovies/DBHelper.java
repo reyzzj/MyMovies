@@ -48,7 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN  module_name TEXT4 ");
     }
 
-    public long insertNote(String noteContent, String noteContent2, String noteContent3, int noteContent4) {
+    public long insertNote(String noteContent, String noteContent2, int noteContent3, String noteContent4) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOTE_CONTENT, noteContent);
@@ -74,8 +74,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 int id = cursor.getInt(0);
                 String noteContent = cursor.getString(1);
                 String noteContent2 = cursor.getString(2);
-                String noteContent3 = cursor.getString(3);
-                int noteContent4 = cursor.getInt(4);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
                 Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
                 notes.add(note);
             } while (cursor.moveToNext());
@@ -99,8 +99,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 int id = cursor.getInt(0);
                 String noteContent = cursor.getString(1);
                 String noteContent2 = cursor.getString(2);
-                String noteContent3 = cursor.getString(3);
-                int noteContent4 = cursor.getInt(4);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
                 Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
                 notes.add(note);
             } while (cursor.moveToNext());
@@ -112,10 +112,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public int updateNote(Movies data){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NOTE_CONTENT, data.getNoteContent());
-        values.put(COLUMN_NOTE_CONTENT2 , data.getNoteContent2());
-        values.put(COLUMN_NOTE_CONTENT3 , data.getNoteContent3());
-        values.put(COLUMN_NOTE_CONTENT4 , data.getNoteContent4());
+        values.put(COLUMN_NOTE_CONTENT, data.getTitle());
+        values.put(COLUMN_NOTE_CONTENT2 , data.getGenre());
+        values.put(COLUMN_NOTE_CONTENT3 , data.getYear());
+        values.put(COLUMN_NOTE_CONTENT4 , data.getRating());
         String condition = COLUMN_ID + "= ?";
         String[] args = {String.valueOf(data.getId())};
         int result = db.update(TABLE_NOTE, values, condition, args);

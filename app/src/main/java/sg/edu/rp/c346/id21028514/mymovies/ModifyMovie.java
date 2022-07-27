@@ -34,11 +34,11 @@ public class ModifyMovie extends AppCompatActivity {
         etEditContent2 = findViewById(R.id.etEditContent2);
         etEditContent3 = findViewById(R.id.etEditContent3);
 
-        starEdit1 = findViewById(R.id.radioButton1);
-        starEdit2 = findViewById(R.id.radioButton2);
-        starEdit3 = findViewById(R.id.radioButton3);
-        starEdit4 = findViewById(R.id.radioButton4);
-        starEdit5 = findViewById(R.id.radioButton5);
+        //starEdit1 = findViewById(R.id.radioButton1);
+        //starEdit2 = findViewById(R.id.radioButton2);
+        //starEdit3 = findViewById(R.id.radioButton3);
+        //starEdit4 = findViewById(R.id.radioButton4);
+        //starEdit5 = findViewById(R.id.radioButton5);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
