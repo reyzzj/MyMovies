@@ -37,7 +37,7 @@ public class CustomAdapter extends ArrayAdapter {
         TextView tvStar = rowView.findViewById(R.id.tvStar);
         TextView tvSinger = rowView.findViewById(R.id.tvSinger);
 
-        //OBTAIN THE SONG INFORMATION BASED ON THE POSITITION
+        //OBTAIN THE SONG INFORMATION BASED ON THE POSITION
         Movies currentVersion = arrayList.get(position);
 
         //SET VALUES TO THE TEXTVIEW TO DISPLAY THE CORRESPONDING INFORMATION
