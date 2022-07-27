@@ -36,7 +36,7 @@ public class CustomAdapter extends ArrayAdapter {
         TextView tvTitle = rowView.findViewById(R.id.showTitle);
         TextView tvGenre = rowView.findViewById(R.id.showGenre);
         TextView tvYear = rowView.findViewById(R.id.showYear);
-        TextView tvRating = rowView.findViewById(R.id.showRating);
+//        TextView tvRating = rowView.findViewById(R.id.showRating);
 
         Movies currentItem = arrayList.get(position);
         ImageView ivRating = rowView.findViewById(R.id.showRating);
@@ -45,9 +45,9 @@ public class CustomAdapter extends ArrayAdapter {
         Movies currentVersion = arrayList.get(position);
 
         //SET VALUES TO THE TEXTVIEW TO DISPLAY THE CORRESPONDING INFORMATION
-        //tvTitle.setText(currentVersion.getNoteContent());
-        //tvGenre.setText(currentVersion.getNoteContent2());
-        //tvYear.setText(currentVersion.getNoteContent3());
+        tvTitle.setText(currentVersion.getTitle());
+        tvGenre.setText(currentVersion.getGenre());
+        tvYear.setText(currentVersion.getYear() + "");
         //tvRating.setText(currentVersion.getNoteContent4());
 
 
@@ -59,27 +59,27 @@ public class CustomAdapter extends ArrayAdapter {
         //else if (currentVersion.getNoteContent4() == 5) { star = "*****"; }
         //tvStar.setText(star);
 
-        if(currentItem.getRating() =="G")
+        if(currentItem.getRating().equals("G"))
         {
             ivRating.setImageResource(R.drawable.rating_g);
         }
-        else if (currentItem.getRating() =="PG")
+        else if (currentItem.getRating().equals("PG"))
         {
             ivRating.setImageResource(R.drawable.rating_pg);
         }
-        else if (currentItem.getRating()=="PG13")
+        else if (currentItem.getRating().equals("PG13"))
         {
             ivRating.setImageResource(R.drawable.rating_pg13);
         }
-        else if (currentItem.getRating()=="NC16")
+        else if (currentItem.getRating().equals("NC16"))
         {
             ivRating.setImageResource(R.drawable.rating_nc16);
         }
-        else if (currentItem.getRating()=="M18")
+        else if (currentItem.getRating().equals("M18"))
         {
             ivRating.setImageResource(R.drawable.rating_m18);
         }
-        else if (currentItem.getRating()=="R21")
+        else if (currentItem.getRating().equals("R21"))
         {
             ivRating.setImageResource(R.drawable.rating_r21);
         }

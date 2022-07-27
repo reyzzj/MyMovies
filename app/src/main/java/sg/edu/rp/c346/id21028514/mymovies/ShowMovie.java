@@ -17,7 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ShowMovie extends AppCompatActivity {
-    Button btnAdd, btnRetrieve,btnShow5;
+    Button btnAdd, btnRetrieve,btnShowMovieWithRating;
     TextView tvID;
     EditText etContent;
     EditText etContent2;
@@ -48,7 +48,7 @@ public class ShowMovie extends AppCompatActivity {
         tvID = findViewById(R.id.tvID);
         btnAdd = findViewById(R.id.btnAdd);
         btnRetrieve = findViewById(R.id.btnRetrieve);
-        btnShow5 = findViewById(R.id.btnShow5);
+        btnShowMovieWithRating = findViewById(R.id.btnShow);
         spnYear = findViewById(R.id.spn);
         etContent = findViewById(R.id.etTitle);
 //        etContent2 = findViewById(R.id.etContent2);
@@ -62,7 +62,7 @@ public class ShowMovie extends AppCompatActivity {
         adapter = new CustomAdapter(this, R.layout.row, al);
         lv.setAdapter(adapter);
 
-        btnShow5.setOnClickListener(new View.OnClickListener() {
+        btnShowMovieWithRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

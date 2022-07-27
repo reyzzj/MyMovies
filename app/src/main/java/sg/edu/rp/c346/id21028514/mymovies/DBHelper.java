@@ -8,17 +8,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "simplenotes.db";
+    private static final String DATABASE_NAME = "Movie List.db";
     private static final int DATABASE_VERSION = 2;
-    private static final String TABLE_NOTE = "note";
+    private static final String TABLE_MOVIE = "movie";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_NOTE_CONTENT = "note_content";
-    private static final String COLUMN_NOTE_CONTENT2 = "note_content2";
-    private static final String COLUMN_NOTE_CONTENT3 = "note_content3";
-    private static final String COLUMN_NOTE_CONTENT4 = "note_content4";
+    private static final String COLUMN_TITLE = "Title";
+    private static final String COLUMN_GENRE = "Genre";
+    private static final String COLUMN_YEAR = "Year";
+    private static final String COLUMN_RATING = "Rating";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -26,12 +27,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createNoteTableSql = "CREATE TABLE " + TABLE_NOTE + "("
+        String createNoteTableSql = "CREATE TABLE " + TABLE_MOVIE + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_NOTE_CONTENT + " TEXT,"
-                + COLUMN_NOTE_CONTENT2 + " TEXT2,"
-                + COLUMN_NOTE_CONTENT3 + " TEXT3,"
-                + COLUMN_NOTE_CONTENT4 + " INTEGER )";
+                + COLUMN_TITLE + " TEXT,"
+                + COLUMN_GENRE + " TEXT2,"
+                + COLUMN_YEAR + " TEXT3,"
+                + COLUMN_RATING + " INTEGER )";
 
         db.execSQL(createNoteTableSql);
     }
@@ -42,20 +43,20 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE);
         onCreate(db);
         */
-        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN  module_name TEXT ");
-        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN  module_name TEXT2 ");
-        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN  module_name TEXT3 ");
-        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN  module_name TEXT4 ");
+        db.execSQL("ALTER TABLE " + TABLE_MOVIE + " ADD COLUMN  module_name TEXT ");
+        db.execSQL("ALTER TABLE " + TABLE_MOVIE + " ADD COLUMN  module_name TEXT2 ");
+        db.execSQL("ALTER TABLE " + TABLE_MOVIE + " ADD COLUMN  module_name TEXT3 ");
+        db.execSQL("ALTER TABLE " + TABLE_MOVIE + " ADD COLUMN  module_name TEXT4 ");
     }
 
     public long insertNote(String noteContent, String noteContent2, int noteContent3, String noteContent4) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NOTE_CONTENT, noteContent);
-        values.put(COLUMN_NOTE_CONTENT2, noteContent2);
-        values.put(COLUMN_NOTE_CONTENT3, noteContent3);
-        values.put(COLUMN_NOTE_CONTENT4, noteContent4);
-        long result = db.insert(TABLE_NOTE, null, values);
+        values.put(COLUMN_TITLE, noteContent);
+        values.put(COLUMN_GENRE, noteContent2);
+        values.put(COLUMN_YEAR, noteContent3);
+        values.put(COLUMN_RATING, noteContent4);
+        long result = db.insert(TABLE_MOVIE, null, values);
         db.close();
         Log.d("SQL Insert","ID:"+ result); //id returned, shouldn’t be -1
         return result;
@@ -65,8 +66,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns= {COLUMN_ID, COLUMN_NOTE_CONTENT, COLUMN_NOTE_CONTENT2,COLUMN_NOTE_CONTENT3, COLUMN_NOTE_CONTENT4};
-        Cursor cursor = db.query(TABLE_NOTE, columns, null, null,
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE,COLUMN_YEAR, COLUMN_RATING};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, null, null,
                 null, null, null, null);
 
         if (cursor.moveToFirst()) {
@@ -85,14 +86,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return notes;
     }
 
-    public ArrayList<Movies> getAll5StarSongs() {
+    public ArrayList<Movies> getRatedG() {
         ArrayList<Movies> notes = new ArrayList<Movies>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns= {COLUMN_ID, COLUMN_NOTE_CONTENT, COLUMN_NOTE_CONTENT2, COLUMN_NOTE_CONTENT3, COLUMN_NOTE_CONTENT4};
-        String condition = COLUMN_NOTE_CONTENT4 + " Like ?";
-        String[] args = { "%" + 5  + "%"};
-        Cursor cursor = db.query(TABLE_NOTE, columns, condition, args,null, null, null, null);
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = { "%" + "G" + "%"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -109,24 +110,24 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return notes;
     }
-    public int updateNote(Movies data){
+    public int updateMovie(Movies data){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NOTE_CONTENT, data.getTitle());
-        values.put(COLUMN_NOTE_CONTENT2 , data.getGenre());
-        values.put(COLUMN_NOTE_CONTENT3 , data.getYear());
-        values.put(COLUMN_NOTE_CONTENT4 , data.getRating());
+        values.put(COLUMN_TITLE, data.getTitle());
+        values.put(COLUMN_GENRE , data.getGenre());
+        values.put(COLUMN_YEAR , data.getYear());
+        values.put(COLUMN_RATING , data.getRating());
         String condition = COLUMN_ID + "= ?";
         String[] args = {String.valueOf(data.getId())};
-        int result = db.update(TABLE_NOTE, values, condition, args);
+        int result = db.update(TABLE_MOVIE, values, condition, args);
         db.close();
         return result;
     }
-    public int deleteNote(int id){
+    public int deleteMovie(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String condition = COLUMN_ID + "= ?";
         String[] args = {String.valueOf(id)};
-        int result = db.delete(TABLE_NOTE, condition, args);
+        int result = db.delete(TABLE_MOVIE, condition, args);
         db.close();
         return result;
     }

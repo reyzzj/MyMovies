@@ -8,12 +8,12 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnShow5"
+        android:id="@+id/btnShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:text="show all 5 star" />
+        android:text="show all movie with this rating" />
 
     <Spinner
         android:id="@+id/spn"

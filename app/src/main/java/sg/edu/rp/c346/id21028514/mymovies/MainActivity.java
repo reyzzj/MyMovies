@@ -57,31 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, al);
         lv.setAdapter(aa);
 
-        spinGenre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Toast.makeText(MainActivity.this, "Rating: G is selected",
-                                Toast.LENGTH_LONG).show();
-                    case 1:
-                        Toast.makeText(MainActivity.this, "Rating: PG is selected",
-                                Toast.LENGTH_LONG).show();
-                    case 2:
-                        Toast.makeText(MainActivity.this, "Rating: PG13 is selected",
-                                Toast.LENGTH_LONG).show();
-                    case 3:
-                        Toast.makeText(MainActivity.this, "Rating: NC16 is selected",
-                                Toast.LENGTH_LONG).show();
-                    case 4:
-                        Toast.makeText(MainActivity.this, "Rating: M18 is selected",
-                                Toast.LENGTH_LONG).show();
-                    case 5:
-                        Toast.makeText(MainActivity.this, "Rating: R21 is selected",
-                                Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+//        String movieRatingS = "";
+
+        
 
 
 
@@ -90,31 +68,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String dataTitle  = etTitle.getText().toString();
                 String dataGenre = etGenre.getText().toString();
-                String dataYear = etYear.getText().toString();
-//                int rating = Integer.parseInt(rb.getText().toString());
+                int dataYear = Integer.parseInt(etYear.getText().toString());
+                String movieRating = spinGenre.getSelectedItem().toString();
 
-//                Log.d("result",rating+"");
+                Log.d("result",movieRating+"");
 //
-//                Log.d("result",data3+"");
-//                String data3 = "";
-//
-//                if(star == R.id.radioButton1) {
-//
-//                    data3 = "*";
-//                } else if(star == R.id.radioButton2) {
-//                    data3 = "**";
-//                } else if(star == R.id.radioButton3) {
-//                    data3 = "***";
-//                } else if(star == R.id.radioButton4) {
-//                    data3 = "****";
-//                } else if(star == R.id.radioButton5) {
-//                    data3 = "*****";
-//                } else {
-//                    Toast.makeText(MainActivity.this, "Wrong star",
-//                            Toast.LENGTH_SHORT).show();
-//                }
+//                Log.d("result",data3+"")
+
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                long inserted_id = dbh.insertNote(dataTitle,dataGenre,dataYear,rating);
+                long inserted_id = dbh.insertNote(dataTitle,dataGenre,dataYear,movieRating);
 
                 if (inserted_id != -1){
                     Toast.makeText(MainActivity.this, "Insert successful",
@@ -134,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 }

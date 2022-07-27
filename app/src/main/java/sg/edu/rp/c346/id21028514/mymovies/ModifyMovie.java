@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class ModifyMovie extends AppCompatActivity {
     RadioButton rbEdit,starEdit1,starEdit2,starEdit3,starEdit4,starEdit5;
     RadioGroup rgEditContent;
     Movies data;
+    Spinner spinGenreEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,8 @@ public class ModifyMovie extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
+        spinGenreEdit = findViewById(R.id.spinnerGenreEdit);
 
-        rgEditContent = findViewById(R.id.rgEditContent);
 
 
         Intent i = getIntent();
@@ -60,12 +62,13 @@ public class ModifyMovie extends AppCompatActivity {
                 data.setTitle(etEditContent.getText().toString());
                 data.setGenre(etEditContent2.getText().toString());
                 data.setYear(Integer.parseInt(etEditContent3.getText().toString()));
-                int data3 = rgEditContent.getCheckedRadioButtonId();
-                rbEdit = findViewById(data3);
-                String rating =(rbEdit.getText().toString());
-                Log.d("result",rating+"");
-
-                Log.d("result",data3+"");
+                String movieRatingE = spinGenreEdit.getSelectedItem().toString();
+//                int data3 = rgEditContent.getCheckedRadioButtonId();
+//                rbEdit = findViewById(data3);
+//                String rating =(rbEdit.getText().toString());
+//                Log.d("result",rating+"");
+//
+//                Log.d("result",data3+"");
 //                int star = rgEditContent.getCheckedRadioButtonId();
 //                String radio = "";
 //
@@ -84,9 +87,9 @@ public class ModifyMovie extends AppCompatActivity {
 //                            Toast.LENGTH_SHORT).show();
 //                }
 
-                data.setRating(rating);
+                data.setRating(movieRatingE);
 
-                dbh.updateNote(data);
+                dbh.updateMovie(data);
                 dbh.close();
                 finish();
             }
@@ -95,7 +98,7 @@ public class ModifyMovie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(ModifyMovie.this);
-                dbh.deleteNote(data.getId());
+                dbh.deleteMovie(data.getId());
                 finish();
 
             }
