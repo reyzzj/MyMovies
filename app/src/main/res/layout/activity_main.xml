@@ -51,12 +51,13 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stars" />
+        android:text="@string/rating" />
 
     <Spinner
-        android:id="@+id/spinner_stars"
+        android:id="@+id/spinnerGenre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:entries="@array/spinnerGenre"/>
 
     <LinearLayout
         android:layout_width="match_parent"
