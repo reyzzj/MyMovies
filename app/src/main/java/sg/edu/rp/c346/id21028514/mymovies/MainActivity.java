@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
         etContent = findViewById(R.id.etContent);
         etContent2 = findViewById(R.id.etContent2);
         etContent3 = findViewById(R.id.etContent3);
-
+        //rgContent = findViewById(R.id.groupradio);
+        //star1 = findViewById(R.id.radioButton1);
+        //star2 = findViewById(R.id.radioButton2);
+        //star3 = findViewById(R.id.radioButton3);
+        //star4 = findViewById(R.id.radioButton4);
+        //star5 = findViewById(R.id.radioButton5);
+        Spinner spinner = findViewById(R.id.spinner_stars);
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
@@ -107,4 +114,3 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 // hello world
-//test

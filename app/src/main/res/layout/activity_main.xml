@@ -24,7 +24,7 @@
         android:id="@+id/tvContent2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/genre" />
+        android:text="Singer name" />
 
     <EditText
         android:id="@+id/etContent2"
@@ -38,7 +38,7 @@
         android:id="@+id/tvContent3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/year" />
+        android:text="Enter Year: " />
 
     <EditText
         android:id="@+id/etContent3"
@@ -51,14 +51,12 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/rating" />
-
+        android:text="Stars" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_stars"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/spinnerGenre"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
