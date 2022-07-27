@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvSong"
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#CC8899"
-        android:text="aaaaaaaa" />
+        android:text="aaaaaaaa"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/tvGenre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#429E9D"
+        android:text="aaaaaaaaaaa"
+        android:textSize="17sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,19 +33,12 @@
             android:text="aaaaaaaaaaaa"
             android:textColor="#808080" />
 
-        <TextView
-            android:id="@+id/tvStar"
+        <ImageView
+            android:id="@+id/tvRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aaaaaaaaaa"
-            android:textColor="#B33B72" />
-    </LinearLayout>
+            app:srcCompat="@drawable/rating_g" />
 
-    <TextView
-        android:id="@+id/tvSinger"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#429E9D"
-        android:text="aaaaaaaaaaa" />
+    </LinearLayout>
 
 </LinearLayout>

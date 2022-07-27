@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etContent2;
     EditText etContent3;
     ArrayList<Movies> al;
-    RadioGroup rgContent;
-    RadioButton rb,star1,star2,star3,star4,star5;
+    Spinner spinGenre;
     ListView lv;
     ArrayAdapter<Movies> aa;
     Movies data;
@@ -45,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
         etContent = findViewById(R.id.etContent);
         etContent2 = findViewById(R.id.etContent2);
         etContent3 = findViewById(R.id.etContent3);
+        spinGenre = findViewById(R.id.spinnerGenre);
         //rgContent = findViewById(R.id.groupradio);
         //star1 = findViewById(R.id.radioButton1);
         //star2 = findViewById(R.id.radioButton2);
         //star3 = findViewById(R.id.radioButton3);
         //star4 = findViewById(R.id.radioButton4);
         //star5 = findViewById(R.id.radioButton5);
-        Spinner spinner = findViewById(R.id.spinner_stars);
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
