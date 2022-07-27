@@ -49,20 +49,20 @@ public class ModifyMovie extends AppCompatActivity {
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
-        etEditContent.setText(data.getNoteContent());
-        etEditContent2.setText(data.getNoteContent2());
-        etEditContent3.setText(data.getNoteContent3());
+        etEditContent.setText(data.getTitle());
+        etEditContent2.setText(data.getGenre());
+        etEditContent3.setText(data.getYear());
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(ModifyMovie.this);
-                data.setNoteContent(etEditContent.getText().toString());
-                data.setNoteContent2(etEditContent2.getText().toString());
-                data.setNoteContent3(etEditContent3.getText().toString());
+                data.setTitle(etEditContent.getText().toString());
+                data.setGenre(etEditContent2.getText().toString());
+                data.setYear(Integer.parseInt(etEditContent3.getText().toString()));
                 int data3 = rgEditContent.getCheckedRadioButtonId();
                 rbEdit = findViewById(data3);
-                int rating = Integer.parseInt(rbEdit.getText().toString());
+                String rating =(rbEdit.getText().toString());
                 Log.d("result",rating+"");
 
                 Log.d("result",data3+"");
@@ -84,7 +84,7 @@ public class ModifyMovie extends AppCompatActivity {
 //                            Toast.LENGTH_SHORT).show();
 //                }
 
-                data.setNoteContent4(rating);
+                data.setRating(rating);
 
                 dbh.updateNote(data);
                 dbh.close();
