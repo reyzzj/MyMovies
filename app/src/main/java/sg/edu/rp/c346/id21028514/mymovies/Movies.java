@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 public class Movies implements Serializable {
 
-    private 	int id;
-    private 	String title;
-    private     String genre;
-    private     int year;
+    private int id;
+    private String title;
+    private String genre;
+    private int year;
+
 
 
 

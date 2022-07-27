@@ -50,9 +50,9 @@ public class ShowMovie extends AppCompatActivity {
         btnRetrieve = findViewById(R.id.btnRetrieve);
         btnShow5 = findViewById(R.id.btnShow5);
         spnYear = findViewById(R.id.spn);
-        etContent = findViewById(R.id.etContent);
-        etContent2 = findViewById(R.id.etContent2);
-        etContent3 = findViewById(R.id.etContent3);
+        etContent = findViewById(R.id.etTitle);
+//        etContent2 = findViewById(R.id.etContent2);
+//        etContent3 = findViewById(R.id.etContent3);
 
         lv = findViewById(R.id.lv);
         al = new ArrayList<Movies>();

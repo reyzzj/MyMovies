@@ -8,26 +8,26 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvContent"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title" />
 
     <EditText
-        android:id="@+id/etContent"
+        android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        />
+        android:inputType="textPersonName" />
+
     <TextView
-        android:id="@+id/tvContent2"
+        android:id="@+id/tvGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Singer name" />
+        android:text="@string/genre" />
 
     <EditText
-        android:id="@+id/etContent2"
+        android:id="@+id/etGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,20 +35,20 @@
         />
 
     <TextView
-        android:id="@+id/tvContent3"
+        android:id="@+id/tvYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Year: " />
+        android:text="@string/year" />
 
     <EditText
-        android:id="@+id/etContent3"
+        android:id="@+id/etYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         />
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/rating" />
