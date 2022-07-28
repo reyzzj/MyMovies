@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -66,11 +67,39 @@ public class ShowMovie extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String result = spnYear.getSelectedItem().toString();
+                Log.d("result",result+"");
+
                 DBHelper dbh = new DBHelper(ShowMovie.this);
                 al.clear();
-                al.addAll(dbh.getAll5StarSongs());
-                adapter.notifyDataSetChanged();
-                Toast.makeText(ShowMovie.this, "Displaying all 5 star songs!", Toast.LENGTH_SHORT).show();
+                if (result.equals("G")) {
+                    al.addAll(dbh.getRatedG());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all G rated movies!", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("PG")){
+                    al.addAll(dbh.getRatedPG());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all PG rated movies!", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("PG13")){
+                    al.addAll(dbh.getRatedPG13());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all PG13 rated movies!", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("NC16")){
+                    al.addAll(dbh.getRatedNC16());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all NC16 rated movies!", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("M18")){
+                    al.addAll(dbh.getRatedM18());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all M18 rated movies!", Toast.LENGTH_SHORT).show();
+                } else if (result.equals("R21")){
+                    al.addAll(dbh.getRatedR21());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(ShowMovie.this, "Displaying all R21 rated movies!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ShowMovie.this, "Error in showing movies", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

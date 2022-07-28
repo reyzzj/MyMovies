@@ -92,7 +92,127 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
         String condition = COLUMN_RATING + " Like ?";
-        String[] args = { "%" + "G" + "%"};
+        String[] args = {"G"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String noteContent = cursor.getString(1);
+                String noteContent2 = cursor.getString(2);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
+                Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+    public ArrayList<Movies> getRatedPG() {
+        ArrayList<Movies> notes = new ArrayList<Movies>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = {"PG"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String noteContent = cursor.getString(1);
+                String noteContent2 = cursor.getString(2);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
+                Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+    public ArrayList<Movies> getRatedPG13() {
+        ArrayList<Movies> notes = new ArrayList<Movies>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = {"PG13"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String noteContent = cursor.getString(1);
+                String noteContent2 = cursor.getString(2);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
+                Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+    public ArrayList<Movies> getRatedNC16() {
+        ArrayList<Movies> notes = new ArrayList<Movies>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = {"NC16"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String noteContent = cursor.getString(1);
+                String noteContent2 = cursor.getString(2);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
+                Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+    public ArrayList<Movies> getRatedM18() {
+        ArrayList<Movies> notes = new ArrayList<Movies>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = {"M18"};
+        Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String noteContent = cursor.getString(1);
+                String noteContent2 = cursor.getString(2);
+                int noteContent3 = cursor.getInt(3);
+                String noteContent4 = cursor.getString(4);
+                Movies note = new Movies(id, noteContent, noteContent2, noteContent3, noteContent4);
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+    public ArrayList<Movies> getRatedR21() {
+        ArrayList<Movies> notes = new ArrayList<Movies>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = {"R21"};
         Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,null, null, null, null);
 
         if (cursor.moveToFirst()) {
