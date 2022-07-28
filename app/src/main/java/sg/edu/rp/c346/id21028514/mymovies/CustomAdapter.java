@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends ArrayAdapter {
@@ -61,27 +63,33 @@ public class CustomAdapter extends ArrayAdapter {
 
         if(currentItem.getRating().equals("G"))
         {
-            ivRating.setImageResource(R.drawable.rating_g);
+            String imageUrl = "https://www.pngkey.com/png/detail/178-1783399_rated-g-logo-best-google-local-guides-badge.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
         else if (currentItem.getRating().equals("PG"))
         {
-            ivRating.setImageResource(R.drawable.rating_pg);
+            String imageUrl = "https://images.immediate.co.uk/production/volatile/sites/28/2019/02/16278-28797ce.jpg?quality=90&webp=true&fit=584,471";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
         else if (currentItem.getRating().equals("PG13"))
         {
-            ivRating.setImageResource(R.drawable.rating_pg13);
+            String imageUrl ="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/RATED_PG-13.svg/2560px-RATED_PG-13.svg.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
         else if (currentItem.getRating().equals("NC16"))
         {
-            ivRating.setImageResource(R.drawable.rating_nc16);
+            String imageUrl ="https://upload.wikimedia.org/wikipedia/commons/d/de/MDA_NC16.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
         else if (currentItem.getRating().equals("M18"))
         {
-            ivRating.setImageResource(R.drawable.rating_m18);
+            String imageUrl ="https://www.imda.gov.sg/-/media/Imda/Images/Content/Regulation-Licensing-and-Consultations/Content-Standards-and-classification/M18-rating.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
         else if (currentItem.getRating().equals("R21"))
         {
-            ivRating.setImageResource(R.drawable.rating_r21);
+            String imageUrl ="https://movielabs.com/md/ratings/v2.4.5/html/imageCache/SG_IMDA_R21.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivRating);
         }
 
         return rowView;

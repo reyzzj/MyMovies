@@ -49,6 +49,7 @@ public class ModifyMovie extends AppCompatActivity {
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
+        tvID.setText(data.getId());
         etNewTitle.setText(data.getTitle());
         etNewGenre.setText(data.getGenre());
         etNewYear.setText(data.getYear());
