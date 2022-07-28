@@ -19,7 +19,6 @@ public class ModifyMovie extends AppCompatActivity {
     TextView tvID;
     EditText etEditContent, etEditContent2, etEditContent3;
     Button btnUpdate, btnDelete, btnCancel;
-    RadioGroup rgEditContent;
     Movies data;
     Spinner spinGenreEdit;
 
