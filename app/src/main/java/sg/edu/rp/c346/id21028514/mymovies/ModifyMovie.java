@@ -81,7 +81,6 @@ public class ModifyMovie extends AppCompatActivity {
                     spinGenreEdit.setSelection(position);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

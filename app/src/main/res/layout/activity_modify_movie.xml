@@ -131,7 +131,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="#4D4C7D"
-            android:text="update" />
+            android:text="update"/>
 
         <Button
             android:id="@+id/btnDelete"
