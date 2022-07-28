@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#E9D5DA"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:background="#827397">
+
+
+        <FrameLayout
+            android:layout_width="459dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="258dp"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amiko"
+                android:text="@string/movies"
+                android:textColor="#EDE6DB"
+                android:textSize="44sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/watching_a_movie"
+                android:layout_gravity="right"/>
+
+
+        </FrameLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvID"
@@ -14,23 +53,32 @@
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Song title" />
+        android:text="@string/title"
+        android:fontFamily="@font/anaheim"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#363062"/>
 
     <EditText
-        android:id="@+id/etEditContent"
+        android:id="@+id/etMovieTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         />
+
     <TextView
         android:id="@+id/tvContent2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Singer' name" />
+        android:fontFamily="@font/anaheim"
+        android:text="@string/genre"
+        android:textColor="#363062"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etEditContent2"
+        android:id="@+id/etGenreName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -41,10 +89,14 @@
         android:id="@+id/tvContent3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text="@string/year"
+        android:fontFamily="@font/anaheim"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#363062"/>
 
     <EditText
-        android:id="@+id/etEditContent3"
+        android:id="@+id/etNewYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -55,33 +107,49 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stars" />
+        android:text="@string/rating"
+        android:fontFamily="@font/anaheim"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#363062"/>
 
     <Spinner
         android:id="@+id/spinnerGenreEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnUpdate"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="update" />
+        android:layout_height="49dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="delete" />
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#4D4C7D"
+            android:text="update" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#4D4C7D"
+            android:text="delete" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="cancel" />
+        android:text="cancel"
+        android:backgroundTint="#4D4C7D"/>
 </LinearLayout>

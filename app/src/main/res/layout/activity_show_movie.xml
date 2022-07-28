@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowMovie"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#E9D5DA"
+    android:padding="10dp">
 
     <Button
         android:id="@+id/btnShow"
@@ -13,13 +15,15 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:text="show all movie with this rating" />
+        android:text="show all movie with this rating"
+        android:backgroundTint="#4D4C7D"/>
 
     <Spinner
         android:id="@+id/spn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/spinnerGenre"/>
+        android:entries="@array/spinnerGenre"
+        />
 
 
     <ListView

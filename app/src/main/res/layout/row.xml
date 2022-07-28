@@ -9,17 +9,19 @@
         android:id="@+id/showTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#CC8899"
+        android:textColor="#937DC2"
         android:text="aaaaaaaa"
-        android:textSize="22sp"/>
+        android:textSize="24sp"
+        android:fontFamily="@font/anaheim"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/showGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#429E9D"
+        android:textColor="#1D5C63"
         android:text="aaaaaaaaaaa"
-        android:textSize="17sp"/>
+        android:textSize="14sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
