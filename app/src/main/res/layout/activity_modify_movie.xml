@@ -151,5 +151,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="cancel"
-        android:backgroundTint="#4D4C7D"/>
+        android:backgroundTint="#4D4C7D"
+        />
 </LinearLayout>

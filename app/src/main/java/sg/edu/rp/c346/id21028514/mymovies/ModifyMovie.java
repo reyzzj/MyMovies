@@ -53,7 +53,7 @@ public class ModifyMovie extends AppCompatActivity {
         etNewGenre.setText(data.getGenre());
         etNewYear.setText(data.getYear());
 
-        spinGenreEdit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinGenreEdit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //new
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
                 if (data.getRating().equals("G")) {
