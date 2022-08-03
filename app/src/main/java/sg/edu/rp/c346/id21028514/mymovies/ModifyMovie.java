@@ -2,6 +2,7 @@ package sg.edu.rp.c346.id21028514.mymovies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -49,10 +50,11 @@ public class ModifyMovie extends AppCompatActivity {
         Intent i = getIntent();
         data = (Movies) i.getSerializableExtra("data");
 
-        tvID.setText(data.getId());
+        tvID.setText(data.getId() +"");
         etNewTitle.setText(data.getTitle());
         etNewGenre.setText(data.getGenre());
-        etNewYear.setText(data.getYear());
+        etNewYear.setText(data.getYear()+"");
+        Log.d("data.getRating().equals",data.getRating());
 
         spinGenreEdit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //new
             @Override
