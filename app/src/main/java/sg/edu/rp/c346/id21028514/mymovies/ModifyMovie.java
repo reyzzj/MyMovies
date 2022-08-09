@@ -1,5 +1,6 @@
 package sg.edu.rp.c346.id21028514.mymovies;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ModifyMovie extends AppCompatActivity {
@@ -99,31 +101,9 @@ public class ModifyMovie extends AppCompatActivity {
                 data.setGenre(etNewGenre.getText().toString());
                 data.setYear(Integer.parseInt(etNewYear.getText().toString()));
                 String movieRatingE = spinGenreEdit.getSelectedItem().toString();
-//                int data3 = rgEditContent.getCheckedRadioButtonId();
-//                rbEdit = findViewById(data3);
-//                String rating =(rbEdit.getText().toString());
-//                Log.d("result",rating+"");
-//
-//                Log.d("result",data3+"");
-//                int star = rgEditContent.getCheckedRadioButtonId();
-//                String radio = "";
-//
-//                if(star == R.id.radioEditButton1) {
-//                    radio = "*";
-//                } else if(star == R.id.radioEditButton2) {
-//                    radio = "**";
-//                } else if(star == R.id.radioEditButton3) {
-//                    radio = "***";
-//                } else if(star == R.id.radioEditButton4) {
-//                    radio = "****";
-//                } else if(star == R.id.radioEditButton5) {
-//                    radio = "*****";
-//                } else {
-//                    Toast.makeText(EditActivity.this, "Wrong star",
-//                            Toast.LENGTH_SHORT).show();
-//                }
 
                 data.setRating(movieRatingE);
+                Log.d("rating",movieRatingE);
 
                 dbh.updateMovie(data);
                 dbh.close();
@@ -132,17 +112,55 @@ public class ModifyMovie extends AppCompatActivity {
         });
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                DBHelper dbh = new DBHelper(ModifyMovie.this);
-                dbh.deleteMovie(data.getId());
-                finish();
+            public void onClick(View view) {
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(ModifyMovie.this);
+                myBuilder.setTitle("Danger");
+                myBuilder.setMessage("Are you sure you want to delete the movie " + data.getTitle());
+                myBuilder.setCancelable(false);
 
+                myBuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                    }
+                });
+
+                myBuilder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        DBHelper dbh = new DBHelper(ModifyMovie.this);
+                        int result = dbh.deleteMovie(data.getId());
+                        Log.d("Result", result + "");
+                        finish();
+                    }
+                });
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
             }
+
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(ModifyMovie.this);
+                myBuilder.setTitle("Danger");
+                myBuilder.setMessage("Are you sure you want to discard the changes");
+                myBuilder.setCancelable(false);
+
+                myBuilder.setNegativeButton("DO NOT DISCARD", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
+
+                myBuilder.setPositiveButton("DISCARD", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
             }
         });
     }
