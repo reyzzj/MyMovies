@@ -136,6 +136,7 @@ public class ModifyMovie extends AppCompatActivity {
                 AlertDialog myDialog = myBuilder.create();
                 myDialog.show();
             }
+            //test
 
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
